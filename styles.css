@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libertinus+Mono&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+    font-family: "Bebas Neue", sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    
+}
+
+.logo {
+    position: relative; 
+    z-index: 100001;
+    background-color: transparent;
+    padding: 0.5rem;
+}
+
+.logo_container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo_pic {
+    height: 4rem;
+    width: 4rem;
+    border-radius:50%;
+}
+
+.logo_name {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: rgb(109, 180, 238);
+    text-decoration: none;
+}
+
+
+.desktop_nav{
+    margin:1.5rem;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    top:0; 
+}
+
+:root{
+    --color-primary:rgb(40, 223, 40);
+    --transition: all 400ms ease;
+    --color-bg:white;
+}
+
+body{
+    color: #333; 
+    background:var(--color-bg);
+    overflow-x: hidden;
+}
+
+.site_header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100000;
+    height: auto;
+    min-height:auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* UPDATED: "Classy" Hamburger Menu Button Styles */
+.menu_toggle {
+    display: none; /* Hidden on desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100002;
+    padding: 1rem;
+    margin-right: 1rem; /* Spacing from edge */
+    
+    /* Size of the hamburger icon */
+    width: 30px; 
+    height: 22px; 
+    position: relative;
+}
+
+.bar {
+    display: block;
+    width: 100%;
+    height: 3px; /* Thickness of the bars */
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+.bar1 { top: 0; }
+.bar2 { top: 50%; transform: translateY(-50%); }
+.bar3 { bottom: 0; }
+
+/* "Classy" X-mark animation */
+.menu_toggle.is-open .bar1 {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.menu_toggle.is-open .bar2 {
+    opacity: 0;
+}
+.menu_toggle.is-open .bar3 {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+
+#menu_links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#menu_links ul {
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-end; 
+    margin-right: 2rem;
+}
+
+#menu_links li{
+    color:white;
+    position: relative;
+}
+
+.menu_items {
+    text-decoration: none;
+    color: white;
+    justify-content:left;
+    text-align: left;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.menu_items:hover {
+    color: var(--color-primary);
+}
+
+/* Submenu box styling */
+#menu_links ul ul {
+    display: none;
+    position: absolute;
+    justify-content:left;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: auto;
+    min-width: 12rem;
+    z-index: 1000;
+    align-items: flex-start;
+}
+
+/* Show submenu on hover */
+#menu_links li:hover > ul {
+    display: flex;
+    flex-direction:column;
+}
+
+#menu_links ul ul a {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+#menu_links ul ul a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ... (intro_overlay, btn_intro, etc. styles remain the same) ... */
+.intro_overlay h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+.intro_overlay p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+.btn_intro {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 300ms ease;
+    margin: 0.5rem;
+}
+.btn_red {
+    background-color: red;
+    color: white;
+    border: none;
+}
+.btn_red:hover {
+    background-color: black;
+    color: white;
+}
+.btn_outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+.btn_outline:hover {
+    background-color: white;
+    color: black;
+}
+.content_section {
+    margin-top: 8rem; 
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+}
+.intro_container + .content_section {
+    margin-top: 4rem;
+}
+.content_section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color:aqua;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+}
+.content_section h3 {
+    font-size: 1.6rem;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.content_section p,
+.content_section li,
+.content_section blockquote {
+    font-size: 2.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+.content_section ul {
+    padding-left: 1.5rem;
+}
+.content_section li {
+    list-style-type: disc;
+}
+.mission-list li {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+.goal-highlight {
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1.7rem;
+}
+.content_section blockquote {
+    font-style: italic;
+    font-size: 1.2rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: #f1f1f1;
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.team-member-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+}
+.team-member-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+.team-member-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    background-color: #555;
+    border: 3px solid var(--color-primary);
+}
+.team-member-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+.team-member-title {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    font-weight: normal;
+}
+h3.team-heading-spacer {
+    margin-top: 3rem;
+}
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.slides-wrapper {
+  display: flex;
+  transition:ease-in-out; 
+  width: 100%;
+}
+.slide {
+  flex: 0 0 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: flex;
+}
+.intro_overlay {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    width: 70%;
+    max-height: 80vh;
+    max-width: 80%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.intro_container {
+    position: relative;
+    display: flex;
+    flex-direction:column;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.intro_overlay .intro_container {
+    position: static;
+    gap: 1rem;
+}
+
+.sht_intro{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+}
+.sec_h1{
+  font-family: "Bebas Neue", sans-serif;
+  font-size:2.5;
+}
+
+@keyframes fade {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+
+/* =========================================
+ UPDATED: RESPONSIVE STYLES (FOR PHONES)
+=========================================
+*/
+@media (max-width: 900px) {
+
+    .menu_toggle {
+        display: block; /* Show hamburger */
+    }
+    .desktop_nav {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .desktop_nav.is-open {
+        display: flex; 
+    }
+
+    #menu_links {
+        width: 100%;
+        justify-content: center;
+    }
+    #menu_links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    #menu_links li {
+        width: 100%;
+        text-align: center;
+    }
+    .menu_items {
+        font-size: 2.5rem;
+        padding: 0.5rem;
+        display: block;
+    }
+
+    /* UPDATED: Mobile Submenu Styles (FIX) */
+    #menu_links ul ul {
+        position: static; 
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        padding: 0.5rem 0 0 0;
+        /* UPDATED: Hide by default */
+        display: none; 
+    }
+    
+    /* UPDATED: Disable hover effect on mobile */
+    #menu_links li:hover > ul {
+        display: none;
+    }
+    
+    /* UPDATED: Show submenu when .submenu-open is added by JS */
+    #menu_links li.submenu-open > ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* UPDATED: Add dropdown arrows */
+    #menu_links li.has-submenu > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; /* For arrow */
+    }
+    #menu_links li.has-submenu > a::after {
+        content: '▼';
+        font-size: 1.2rem; /* Make arrow bigger */
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+    }
+    /* UPDATED: Rotate arrow when open */
+    #menu_links li.has-submenu.submenu-open > a::after {
+        transform: rotate(180deg);
+    }
+
+    #menu_links ul ul a {
+        font-size: 1.8rem;
+        color: #ccc;
+    }
+    #menu_links ul ul a:hover {
+        background: transparent;
+        color: var(--color-primary);
+    }
+    
+    /* ... (rest of the mobile styles remain the same) ... */
+    .intro_overlay {
+        width: 90%;
+        max-height: 80vh;
+        padding: 1rem;
+    }
+    .intro_overlay h1 {
+        font-size: 2.5rem;
+    }
+    .sec_h1 {
+        font-size: 2rem;
+    }
+    .intro_overlay p {
+        font-size: 1.1rem;
+    }
+    .btn_intro {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .content_section {
+        width: 95vw;
+        padding: 1.5rem;
+        margin-top: 6rem;
+    }
+    .content_section p,
+    .content_section li,
+    .content_section blockquote {
+        font-size: 1.4rem;
+    }
+    .mission-list li, .goal-highlight {
+        font-size: 1.3rem;
+    }
+    .logo_name {
+        font-size: 1.8rem;
+    }
+    .logo_pic {
+        height: 3rem;
+        width: 3rem;
+    }
+}

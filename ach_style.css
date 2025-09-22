@@ -1,0 +1,242 @@
+/* General styles */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #809292;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+/* Container for the archive page */
+.archive-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  /* FIX: Add margin-top to clear the fixed header */
+  margin-top: 100px; 
+}
+
+/* Section titles */
+.archive-section-title {
+  font-size: 2rem;
+  margin: 32px 0 16px 0;
+  color: #2a4d69;
+  border-bottom: 2px solid #e6e6e6;
+  padding-bottom: 8px;
+}
+
+/* Grid for pics, events, videos */
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 32px;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+/* Card styles for each item */
+.archive-card {
+  background: #fafbfc;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.15s;
+}
+.archive-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Image styling */
+.archive-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Video styling */
+.archive-card video,
+.archive-card iframe {
+  width: 100%;
+  height: 180px;
+  display: block;
+  border: none;
+  background: #000;
+}
+
+/* Event info */
+.archive-card .event-info {
+  padding: 16px 12px 8px 12px;
+  background: #f6f8fa;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  margin-top: -4px;
+}
+.archive-card .event-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1b2e4b;
+  margin-bottom: 4px;
+}
+.archive-card .event-date {
+  font-size: 0.98rem;
+  color: #2a4d69;
+  margin-bottom: 6px;
+}
+.archive-card .event-desc {
+  font-size: 0.97rem;
+  color: #444;
+  line-height: 1.4;
+}
+/* Event section styles */
+.event-section {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.event-section:last-child {
+  border-bottom: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .archive-container {
+    padding: 8px;
+    /* FIX: Adjust margin-top for smaller screens if header is smaller */
+    margin-top: 80px; 
+  }
+  .archive-section-title {
+    font-size: 1.3rem;
+  }
+  .archive-card img,
+  .archive-card video,
+  .archive-card iframe {
+    height: 120px;
+  }
+}
+
+/* Accordion styles */
+.accordion {
+  margin: 30px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e6e6e6;
+  background: #fff;
+}
+
+.accordion-title {
+  cursor: pointer;
+  padding: 18px 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: #2a4d69;
+  color: #fff;
+  transition: background 0.2s;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accordion-arrow {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 12px;
+  font-size: 1.2em;
+  display: inline-block;
+}
+.accordion-item.open .accordion-arrow {
+  transform: rotate(90deg);
+}
+
+/* Show preview grid only when accordion is closed */
+.archive-preview {
+  margin-bottom: 0;
+}
+.accordion-content {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+  padding: 0 24px;
+}
+.accordion-item.open .archive-preview {
+  display: none;
+}
+.accordion-item.open .accordion-content {
+  opacity: 1;
+  max-height: 2000px; /* Large enough for your content */
+  padding-bottom: 24px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive: stack to 2 columns on medium screens, 1 on small */
+@media (max-width: 900px) {
+  .archive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal styles */
+.media-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+.media-modal.active {
+  display: flex;
+}
+.media-modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media-modal-content img,
+.media-modal-content video,
+.media-modal-content iframe {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  background: #000;
+}
+.media-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  user-select: none;
+}
+
+/* FIX: Removed one extra closing brace '}' from here */
