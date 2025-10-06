@@ -1,0 +1,12 @@
+/* --- About Page Specific Styles --- */
+
+/* Add a bit of space between the fixed header and the first content section */
+.content_section:first-of-type {
+    margin-top: 8rem;
+}
+
+@media (max-width: 900px) {
+    .content_section:first-of-type {
+        margin-top: 6rem;
+    }
+}

@@ -1,0 +1,162 @@
+/* --- UPDATED Team Grid for a 5-Column Layout --- */
+.team-grid {
+    display: grid;
+    /* On large screens, create 5 equal columns */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    /* The overflow and padding-bottom for scrolling are no longer needed */
+}
+
+/* --- UPDATED Team Card --- */
+.team-member-card {
+    background: #fff;
+    border: 1px solid #eef;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    /* REMOVE the 'flex' property from the previous step */
+}
+
+/* --- Add these NEW Media Queries for Responsiveness --- */
+
+/* For tablets and smaller laptops */
+@media (max-width: 1200px) {
+    .team-grid {
+        /* Show 4 members per row */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* For tablets */
+@media (max-width: 992px) {
+    .team-grid {
+        /* Show 3 members per row */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 768px) {
+    .team-grid {
+        /* Show 2 members per row */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.slideshow-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: ease-in-out;
+  width: 100%;
+}
+
+.slide {
+  flex: 0 0 100%; /* Each slide takes up 100% of the container width */
+  height: 100vh;
+}
+
+.slide img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ensures the image covers the screen without distortion */
+}
+
+/* --- Intro Overlay (Text and Buttons over Slideshow) --- */
+.intro-section {
+  position: relative;
+  height: 100vh; /* Make the section take full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Sits on top of the slideshow */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  width: 70%;
+  max-width: 80%;
+}
+
+.intro_overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro_overlay .sec_h1 {
+  font-size: 2.5rem;
+}
+
+.intro_overlay p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* --- UPDATED: Intro Buttons --- */
+.btn_intro {
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  margin: 1.5rem 0.5rem 0 0.5rem;
+  border: 2px solid transparent;
+}
+
+.btn_red {
+  background-color: var(--color-accent);
+  color: var(--color-dark-surface);
+  border-color: var(--color-accent);
+}
+.btn_red:hover {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.btn_outline {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+.btn_outline:hover {
+  background-color: white;
+  color: var(--color-dark-surface);
+}
+
+/* --- Responsive adjustments for the intro section --- */
+@media (max-width: 900px) {
+  .intro_overlay {
+    width: 90%;
+    padding: 1rem;
+  }
+  .intro_overlay h1 {
+    font-size: 2.5rem;
+  }
+  .intro_overlay .sec_h1 {
+    font-size: 2rem;
+  }
+  .intro_overlay p {
+    font-size: 1.1rem;
+  }
+  .btn_intro {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}

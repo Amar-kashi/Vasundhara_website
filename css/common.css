@@ -1,0 +1,323 @@
+/* --- Google Fonts & Global Reset --- */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Theme Variables --- */
+:root {
+  --color-background: #f4f7f9;
+  --color-text: #333333;
+  --color-primary: #005f73; /* Deep Teal */
+  --color-accent: #19d5ee; /* Warm Gold */
+  --color-surface: #ffffff;
+  --color-dark-surface: #0a1128;
+  --font-heading: "Oswald", sans-serif;
+  --font-body: "Lato", sans-serif;
+  --transition: all 400ms ease;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* --- Header & Logo --- */
+.site_header {
+  background-color: rgba(10, 17, 40, 0.85); /* Dark blue with transparency */
+  backdrop-filter: blur(5px); /* Classy blur effect */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.logo_container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo_pic {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+}
+
+.logo_name {
+  font-family: var(--font-heading); /* Use heading font */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff; /* Changed to white to match the theme */
+  text-decoration: none;
+}
+
+/* --- Navigation --- */
+#menu_links ul {
+  font-size: 1.2rem; /* Adjusted for a cleaner look */
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+#menu_links li {
+  position: relative;
+}
+
+.menu_items {
+  font-family: var(--font-heading); /* Use heading font for nav items */
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: var(--transition);
+  letter-spacing: 1px; /* Adds a bit of class */
+}
+
+.menu_items:hover {
+  color: var(--color-accent); /* Hover to gold */
+}
+
+/* Submenu Styling */
+#menu_links li:hover > ul {
+  display: flex;
+  flex-direction: column;
+}
+
+#menu_links ul ul {
+  display: none;
+  position: absolute;
+  background-color: rgba(10, 17, 40, 0.9);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  min-width: 12rem;
+  z-index: 1000;
+}
+
+#menu_links ul ul a {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 6px;
+}
+
+/* --- Hamburger Menu (for mobile) --- */
+.menu_toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100002;
+  padding: 1rem;
+  width: 30px;
+  height: 22px;
+  position: relative;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 0;
+}
+.bar1 {
+  top: 0;
+}
+.bar2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.bar3 {
+  bottom: 0;
+}
+
+.menu_toggle.is-open .bar1 {
+  transform: translateY(9.5px) rotate(45deg);
+}
+.menu_toggle.is-open .bar2 {
+  opacity: 0;
+}
+.menu_toggle.is-open .bar3 {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* --- Reusable Content Sections --- */
+.content_section {
+  width: 100%;
+  margin: 1rem;
+  padding: 2.5rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-radius:2rem;
+  box-shadow: 0 18px 90px rgba(0, 0, 0, 0.08);
+}
+
+.content_section h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.5rem;
+}
+
+.content_section p,
+.content_section li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* --- Reusable Team Card Component --- */
+.team-member-card {
+  background: #fff;
+  border: 1px solid #eef;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.team-member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 40px rgba(8, 8, 8, 0.15);
+}
+
+.team-member-name {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.team-member-title {
+  font-size: 1rem;
+  color: var(--color-accent);
+}
+
+/* --- Animation Classes for Dynamic Scrolling --- */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Footer Styles --- */
+.site-footer {
+    background-color: #0a1128; /* Dark blue from your old theme */
+    color: #a9a9a9; /* Light gray text */
+    padding: 4rem 2rem 1rem 2rem;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Create responsive columns */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer-column .logo_name {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+.footer-column .logo_pic {
+    height: 3rem;
+    width: 3rem;
+}
+
+.footer-column h3 {
+    font-family: var(--font-heading, 'Oswald', sans-serif);
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: #a9a9a9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #ffffff;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #a9a9a9;
+    border-radius: 50%;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.social-links a:hover {
+    background-color: var(--color-primary, #e6007e);
+    border-color: var(--color-primary, #e6007e);
+}
+
+.footer-donate-btn {
+    display: inline-block;
+    background-color: var(--color-primary, #e6007e);
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+.footer-donate-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    margin-bottom: 0.5rem;
+}
